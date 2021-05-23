@@ -29,7 +29,7 @@ public class GerenciaConta {
         return saida;
     }
 
-    public String buscarConta (String nome){
+    public String buscarNome (String nome){
         for (Conta conta : listaDeContas){
             if(conta.getNome().equals(nome)){
                 return conta.getDados();
@@ -38,4 +38,14 @@ public class GerenciaConta {
         return "Não encontrado";
     }
 
+    public String buscarCpf (String nome){
+        for (Conta conta : listaDeContas){
+            if(conta.getCpf().equals(nome)){
+                return conta.getDados();
+            }
+        }
+        return "Não encontrado";
+    }
+
+    
 }
