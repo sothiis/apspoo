@@ -7,17 +7,17 @@ public class AppContas {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        GerenciaConta contas = new GerenciaConta();
+
         int menu, numero;
         double saldo, limite, taxa;
         String nome, cpf, conta;
-
-        GerenciaConta contas = new GerenciaConta();
 
         do {
             System.out.println("-----------------------------------------------");
             System.out.println("|  G E R E N C I A M E N T O  D E  B A N C O  |");
             System.out.println("-----------------------------------------------");
-            System.out.println("           |  B E M V I N D O   |             " );
+            System.out.println("           |  B E M V I N D O   |             ");
             System.out.println("           | O QUE DESEJA FAZER?| ");
             System.out.println("-----------------------------------------------");
             System.out.println("|      1 - ADICIONAR NOVA CONTA CORRENTE      |");
@@ -40,9 +40,9 @@ public class AppContas {
                     System.out.println("INFORME O CPF:");
                     cpf = sc.nextLine();
                     System.out.println("INFORME O NÚMERO DA CONTA:");
-                    numero = sc.nextInt();
+                    numero = Integer.parseInt(sc.nextLine());
                     System.out.println("INFORME SEU SALDO:");
-                    saldo = sc.nextDouble();
+                    saldo = Double.parseDouble(sc.nextLine());
                     contas.novaContaCorrente(nome, cpf, numero, saldo);
                     break;
 
@@ -52,25 +52,30 @@ public class AppContas {
                     System.out.println("INFORME O CPF:");
                     cpf = sc.nextLine();
                     System.out.println("INFORME O NÚMERO DA CONTA:");
-                    numero = sc.nextInt();
+                    numero = Integer.parseInt(sc.nextLine());
                     System.out.println("INFORME SEU SALDO:");
-                    saldo = sc.nextDouble();
+                    saldo = Double.parseDouble(sc.nextLine());
                     System.out.println("INFORME O LIMITE DA CONTA");
-                    limite = sc.nextDouble();
+                    limite = Double.parseDouble(sc.nextLine());
                     contas.novaContaEspecial(nome, cpf, numero, saldo, limite);
                     break;
-               
+
                 case 3:
-                    System.out.println("Infome o nome:");
+                    System.out.println("INFORME O NOME:");
                     nome = sc.nextLine();
-                    System.out.println("Infome o CPF:");
+                    System.out.println("INFORME O CPF:");
                     cpf = sc.nextLine();
-                    contas.novaContaPoupanca(nome, cpf);
+                    System.out.println("INFORME O NÚMERO DA CONTA:");
+                    numero = Integer.parseInt(sc.nextLine());
+                    System.out.println("INFORME SEU SALDO:");
+                    saldo = Double.parseDouble(sc.nextLine());
+                    contas.novaContaPoupanca(nome, cpf, numero, saldo);
                     break;
 
                 case 4:
-                    System.out.println("Informe o CPF para ter a conta removida");
+                    System.out.println("INFORME O CPF PARA TER A CONTA REMOVIDA");
                     cpf = sc.nextLine();
+                    System.out.println(contas.remove(cpf));
                     break;
 
                 case 5:
@@ -78,38 +83,44 @@ public class AppContas {
                     break;
 
                 case 6:
-                    System.out.println("Infome seu nome:");
+                    System.out.println("INFORME O NOME A SER PESQUISADO:");
                     nome = sc.nextLine();
                     System.out.println(contas.buscarNome(nome));
-                    //BUSCAR POR NOME 
+                    break;
+                // BUSCAR POR NOME
 
                 case 7:
-                    System.out.println("Informe o seu cpf");
+                    System.out.println("INFORME O CPF A SER PESQUISADO:");
                     cpf = sc.nextLine();
                     System.out.println(contas.buscarCpf(cpf));
-                    
-                    //BUSCAR POR CPF
-                  
+                    break;
+                // BUSCAR POR CPF
+
                 case 8:
                     // FAZER SAQUE
-                    System.out.println("Qual o seu tipo de conta que seja fazer depósito?");
-                    System.out.println("1- Conta Corrente");
-                    System.out.println("2- Conta Especial");
-                    System.out.println("3- Conta Poupança");
+                    System.out.println("QUAL TIPO DE CONTA DESEJA FAZER O DEPÓSITO?");
+                    System.out.println("1 - CONTA CORRENTE");
+                    // permite fazer saques somente se houver saldo suficiente
+                    System.out.println("2 - CONTA ESPECIAL");
+                    // possui um limite que permite fazer saques se o saldo mais o limite da conta
+                    // cobrir o valor pretendido de saque
+                    System.out.println("3 - CONTA POUPANÇA");
+                    // realiza saque se houver saldo, mas há uma taxa por operação.
                     break;
+
                 case 9:
-                      // FAZER DEPOSITO
-                      System.out.println();
-                      break;
-                
+                    // FAZER DEPOSITO
+                    System.out.println();
+                    break;
+
                 case 10:
-                     System.out.println();
+                    System.out.println();
                     break;
                 // TERMINAR PROGRAMA
 
                 case 11:
-                System.err.println("Opção inválida");
-                break;
+                    System.err.println("OPÇÃO INVÁLIDA! ");
+                    break;
 
             }
 

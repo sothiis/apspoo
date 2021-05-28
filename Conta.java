@@ -58,8 +58,6 @@ public boolean depositar (double valores){
     return saldo;
   }
 
- 
-
   public abstract String getDados();
 
 }

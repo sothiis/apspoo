@@ -18,6 +18,7 @@ public class ContaEspecial extends Conta {
 
     @Override
     public String getDados() {
-        return "Conta Poupança:" + getNome() + " - " + getCpf() + getNumero() + getSaldo() + limite;
+        return "CONTA ESPECIAL  " + "NOME: " + getNome() + " - " + "CPF: " + getCpf() + " NÚMERO DA CONTA: "
+                + getNumero() + " SALDO: " + getSaldo() + "LIMITE: " + limite;
     }
 }
