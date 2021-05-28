@@ -5,8 +5,8 @@ public class ContaPoupanca extends Conta{
 
     private double taxa;
     
-    public ContaPoupanca(int numero, double saldo, String nome, String cpf, int taxa) {
-        super (numero, saldo, nome, cpf);
+    public ContaPoupanca(String nome, String cpf, int numero, double saldo, int taxa) {
+        super (nome, cpf, numero, saldo);
         this.taxa = taxa;
     }
 
@@ -20,7 +20,7 @@ public class ContaPoupanca extends Conta{
 
     @Override
     public String getDados() {
-        return "Conta Poupança:" + getNome() + " - " + getNumero() + getSaldo() + getCpf() +  taxa;
+        return "Conta Poupança:" + getNome() + " - " + getCpf() +  getNumero() + getSaldo() +  taxa;
     }
 }
 

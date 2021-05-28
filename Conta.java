@@ -11,19 +11,35 @@ public abstract class Conta {
   private String cpf;
   private String nome;
 
-  public Conta(int numero, double saldo, String nome, String cpf) {
+  public Conta(String nome, String cpf, int numero, double saldo) {
+    this.nome = nome;
+    this.cpf = cpf;
     this.numero = numero;
     this.saldo = saldo;
-    this.nome = nome;
-    this.cpf = cpf; 
   }
 
-  public boolean depositar (double valores){
+public boolean depositar (double valores){
     return true;
   }
 
   public boolean sacar (double valores){
     return true;
+  }
+
+  public String getNome() {
+    return nome;
+  }
+
+  public String setNome(){
+    return nome;
+  }
+
+  public String getCpf(){
+    return cpf;
+  }
+
+  public String setCpf(){
+    return cpf;
   }
 
   public int getNumero(){
@@ -42,21 +58,7 @@ public abstract class Conta {
     return saldo;
   }
 
-  public String getNome() {
-    return nome;
-  }
-
-  public String setNome(){
-    return nome;
-  }
-
-  public String getCpf(){
-    return cpf;
-  }
-
-  public String setCpf(){
-    return cpf;
-  }
+ 
 
   public abstract String getDados();
 
