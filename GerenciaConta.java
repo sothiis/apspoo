@@ -7,18 +7,18 @@ public class GerenciaConta {
         listaDeContas = new ArrayList<>();
     }
 
-    public void novaContaCorrente(String nome, String cpf) {
-        listaDeContas.add(new ContaCorrente(numero, saldo, nome, cpf));
+    public void novaContaCorrente(String nome, String cpf, int numero, double saldo) {
+        listaDeContas.add(new ContaCorrente(nome, cpf, numero, saldo));
 
     }
 
-    public void novaContaEspecial(String nome, String cpf) {
-        listaDeContas.add(new ContaEspecial(numero, saldo, nome, cpf, limite));
+    public void novaContaEspecial(String nome, String cpf, int numero, double limite) {
+        listaDeContas.add(new ContaEspecial(nome, cpf, numero, limite));
 
     }
 
-    public void novaContaPoupanca(String nome, String cpf) {
-        listaDeContas.add(new ContaPoupanca(numero, saldo, nome, cpf, taxa));
+    public void novaContaPoupanca(String nome, String cpf, int numero,  double saldo, double taxa) {
+        listaDeContas.add(new ContaPoupanca(nome, cpf, numero, saldo, taxa));
     }
 
     public String listarContas() {

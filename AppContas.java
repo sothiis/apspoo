@@ -7,7 +7,7 @@ public class AppContas {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int menu;
+        int menu, numero;
         double saldo, limite, taxa;
         String nome, cpf, conta;
 
@@ -35,19 +35,29 @@ public class AppContas {
 
             switch (menu) {
                 case 1:
-                    System.out.println("Informe o nome:");
+                    System.out.println("INFORME O NOME:");
                     nome = sc.nextLine();
-                    System.out.println("Informe o CPF:");
+                    System.out.println("INFORME O CPF:");
                     cpf = sc.nextLine();
-                    contas.novaContaCorrente(nome, cpf);
+                    System.out.println("INFORME O NÚMERO DA CONTA:");
+                    numero = sc.nextInt();
+                    System.out.println("INFORME SEU SALDO:");
+                    saldo = sc.nextDouble();
+                    contas.novaContaCorrente(nome, cpf, numero, saldo);
                     break;
 
                 case 2:
-                    System.out.println("Informe o nome:");
+                    System.out.println("INFORME O NOME:");
                     nome = sc.nextLine();
-                    System.out.println("Informe o CPF:");
+                    System.out.println("INFORME O CPF:");
                     cpf = sc.nextLine();
-                    contas.novaContaEspecial(nome, cpf);
+                    System.out.println("INFORME O NÚMERO DA CONTA:");
+                    numero = sc.nextInt();
+                    System.out.println("INFORME SEU SALDO:");
+                    saldo = sc.nextDouble();
+                    System.out.println("INFORME O LIMITE DA CONTA");
+                    limite = sc.nextDouble();
+                    contas.novaContaEspecial(nome, cpf, numero, saldo, limite);
                     break;
                
                 case 3:

@@ -3,7 +3,7 @@ public class ContaEspecial extends Conta {
     // limite da conta cobrir o valor pretendido de saque.
     private double limite;
 
-    public ContaEspecial(String nome, String cpf, int numero, double saldo, double limite) {
+    public ContaEspecial(String nome, String cpf, int numero, double saldo) {
         super(nome, cpf, numero, saldo);
         this.limite = limite;
     }
@@ -18,6 +18,6 @@ public class ContaEspecial extends Conta {
 
     @Override
     public String getDados() {
-        return "Conta Poupança:" + getNome() + " - " + getCpf() + getNumero() + getSaldo() + + limite;
+        return "Conta Poupança:" + getNome() + " - " + getCpf() + getNumero() + getSaldo() + limite;
     }
 }

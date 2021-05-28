@@ -5,7 +5,7 @@ public class ContaPoupanca extends Conta{
 
     private double taxa;
     
-    public ContaPoupanca(String nome, String cpf, int numero, double saldo, int taxa) {
+    public ContaPoupanca(String nome, String cpf, int numero, double saldo, double taxa) {
         super (nome, cpf, numero, saldo);
         this.taxa = taxa;
     }
