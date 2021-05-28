@@ -14,20 +14,23 @@ public class AppContas {
         GerenciaConta contas = new GerenciaConta();
 
         do {
-            System.out.println("---------------------------------------------");
-            System.out.println("  G E R E N C I A M E N T O  D E  B A N C O  ");
-            System.out.println();
-            System.out.println("  1 - Adicionar nova conta corrente");
-            System.out.println("  2 - Adicionar nova conta especial");
-            System.out.println("  3 - Adicionar nova conta poupança");
-            System.out.println("  4 - Remover conta");
-            System.out.println("  5 - Listar contas");
-            System.out.println("  6 - Buscar por nome");
-            System.out.println("  7 - Buscar por cpf");
-            System.out.println("  8 - Fazer saque");
-            System.out.println("  9 - Fazer depósito");
-            System.out.println("  10 - Terminar programa");
-            System.out.println("---------------------------------------------");
+            System.out.println("-----------------------------------------------");
+            System.out.println("|  G E R E N C I A M E N T O  D E  B A N C O  |");
+            System.out.println("-----------------------------------------------");
+            System.out.println("           |  B E M V I N D O   |             " );
+            System.out.println("           | O QUE DESEJA FAZER?| ");
+            System.out.println("-----------------------------------------------");
+            System.out.println("|      1 - ADICIONAR NOVA CONTA CORRENTE      |");
+            System.out.println("|      2 - ADICIONAR NOVA CONTA ESPECIAL      |");
+            System.out.println("|      3 - ADICIONAR NOVA CONTA POUPANÇA      |");
+            System.out.println("|      4 - REMOVER CONTA                      |");
+            System.out.println("|      5 - LISTAR CONTAS                      |");
+            System.out.println("|      6 - BUSCAR POR NOME                    |");
+            System.out.println("|      7 - BUSCAR POR CPF                     |");
+            System.out.println("|      8 - FAZER SAQUE                        |");
+            System.out.println("|      9 - FAZER DEPÓSITO                     |");
+            System.out.println("|     10 - TERMINAR PROGRAMA                  |");
+            System.out.println("-----------------------------------------------");
             menu = Integer.parseInt(sc.nextLine());
 
             switch (menu) {
