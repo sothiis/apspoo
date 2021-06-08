@@ -1,5 +1,8 @@
 public class ContaCorrente extends Conta {
-   // A ​ContaCorrente​ permite fazer saques somente se houver saldo suficiente.
+
+   public ContaCorrente() {
+
+   }
 
    public ContaCorrente(String nome, String cpf, int numero, double saldo) {
       super(nome, cpf, numero, saldo);
@@ -12,4 +15,22 @@ public class ContaCorrente extends Conta {
             + " SALDO: " + getSaldo();
    }
 
+   @Override
+   public boolean sacar(double valores) {
+      if (getSaldo() >= valores) {
+         setSaldo(getSaldo() - valores);
+         return true;
+
+      }
+
+      return false;
+
+   }
+
+   @Override
+   public boolean depositar(double valores) {
+      setSaldo(getSaldo() + valores);
+
+      return true;
+   }
 }
