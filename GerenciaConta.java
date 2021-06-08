@@ -48,12 +48,4 @@ public class GerenciaConta {
         return "Não encontrado";
     }
 
-    public String buscarCpf(String nome) {
-        for (Conta conta : listaDeContas) {
-            if (conta.getCpf().equals(nome)) {
-                return conta.getDados();
-            }
-        }
-        return "Não encontrado";
-    }
 }

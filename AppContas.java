@@ -26,10 +26,9 @@ public class AppContas {
             System.out.println("|      4 - REMOVER CONTA                      |");
             System.out.println("|      5 - LISTAR CONTAS                      |");
             System.out.println("|      6 - BUSCAR POR NOME                    |");
-            System.out.println("|      7 - BUSCAR POR CPF                     |");
-            System.out.println("|      8 - FAZER SAQUE                        |");
-            System.out.println("|      9 - FAZER DEPÓSITO                     |");
-            System.out.println("|     10 - TERMINAR PROGRAMA                  |");
+            System.out.println("|      7 - FAZER SAQUE                        |");
+            System.out.println("|      8 - FAZER DEPÓSITO                     |");
+            System.out.println("|      9 - TERMINAR PROGRAMA                  |");
             System.out.println("-----------------------------------------------");
             menu = Integer.parseInt(sc.nextLine());
 
@@ -90,38 +89,27 @@ public class AppContas {
                 // BUSCAR POR NOME
 
                 case 7:
-                    System.out.println("INFORME O CPF A SER PESQUISADO:");
-                    cpf = sc.nextLine();
-                    System.out.println(contas.buscarCpf(cpf));
-                    break;
-                // BUSCAR POR CPF
-                case 8:
                     // FAZER SAQUE
                     System.out.println("QUAL TIPO DE CONTA DESEJA FAZER O SAQUE?");
                     System.out.println("1 - CONTA CORRENTE");
-                    // permite fazer saques somente se houver saldo suficiente
                     System.out.println("2 - CONTA ESPECIAL");
-                    // possui um limite que permite fazer saques se o saldo mais o limite da conta
-                    // cobrir o valor pretendido de saque
                     System.out.println("3 - CONTA POUPANÇA");
-                    // realiza saque se houver saldo, mas há uma taxa por operação.
                     break;
 
-                case 9:
+                case 8:
                     // FAZER DEPOSITO
                     break;
 
-                case 10:
+                case 9:
                     System.out.println();
                     break;
 
-                case 11:
+                case 10:
                     System.err.println("OPÇÃO INVÁLIDA!");
                     break;
-
             }
 
-        } while (menu != 10);
+        } while (menu != 9);
         sc.close();
 
     }
