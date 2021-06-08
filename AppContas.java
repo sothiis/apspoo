@@ -1,17 +1,15 @@
 import java.util.Scanner;
 
 public class AppContas {
-    /*
-     * Deve ser utilizada pela classe App contas para adicionar, remover e listar
-     * contas, além de fazer os saques e depósitos
-     */
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         GerenciaConta contas = new GerenciaConta();
 
-        int menu, numero;
-        double saldo, limite, taxa;
+        int menu, numero, tipoDeConta;
+        double saldo, limite, taxa, valores;
         String nome, cpf, conta;
+        Integer numeroConta = null;
 
         do {
             System.out.println("-----------------------------------------------");
@@ -26,11 +24,14 @@ public class AppContas {
             System.out.println("|      4 - REMOVER CONTA                      |");
             System.out.println("|      5 - LISTAR CONTAS                      |");
             System.out.println("|      6 - BUSCAR POR NOME                    |");
-            System.out.println("|      7 - FAZER SAQUE                        |");
-            System.out.println("|      8 - FAZER DEPÓSITO                     |");
-            System.out.println("|      9 - TERMINAR PROGRAMA                  |");
+            System.out.println("|      7 - BUSCAR POR CPF                     |");
+            System.out.println("|      8 - FAZER SAQUE                        |");
+            System.out.println("|      9 - FAZER DEPÓSITO                     |");
+            System.out.println("|     10 - TERMINAR PROGRAMA                  |");
             System.out.println("-----------------------------------------------");
-            menu = Integer.parseInt(sc.nextLine());
+
+            menu = sc.nextInt();
+            sc.nextLine();
 
             switch (menu) {
                 case 1:
@@ -89,24 +90,49 @@ public class AppContas {
                 // BUSCAR POR NOME
 
                 case 7:
-                    // FAZER SAQUE
-                    System.out.println("QUAL TIPO DE CONTA DESEJA FAZER O SAQUE?");
-                    System.out.println("1 - CONTA CORRENTE");
-                    System.out.println("2 - CONTA ESPECIAL");
-                    System.out.println("3 - CONTA POUPANÇA");
+                    System.out.println("INFORME O CPF A SER PESQUISADO:");
+                    cpf = sc.nextLine();
+                    System.out.println(contas.buscarCpf(cpf));
                     break;
+                // BUSCAR POR CPF
 
                 case 8:
-                    // FAZER DEPOSITO
+                    System.out.println("DIGITE O NUMERO DA SUA CONTA: ");
+                    numeroConta = sc.nextInt();
+
+                    System.out.println("DIGITE O VALOR QUE DESEJA SACAR: ");
+                    valores = sc.nextDouble();
+
+                    if (contas.fazerSaque(numeroConta, valores)) {
+                        System.out.println("VOCÊ REALIZOU UM SAQUE DE: " + valores + "COM EXITO!");
+                    } else {
+                        System.out.println("SAQUE NÃO PERMITIDO, POR FAVOR, ENTRE EM CONTATO COM SEU BANCO.");
+                    }
+
                     break;
 
                 case 9:
-                    System.out.println();
+                    // FAZER DEPOSITO
+                    System.out.println("DIGITE O NUMERO DA SUA CONTA: ");
+                    numeroConta = sc.nextInt();
+
+                    System.out.println("DIGITE O VALOR QUE DESEJA DEPOSITAR: ");
+                    valores = sc.nextDouble();
+
+                    if (contas.fazerDeposito(numeroConta, valores)) {
+                        System.out.println("VOCÊ ACABOU DE REALIZAR UM DEPOSITO DE: " + valores
+                                + "NA SUA CONTA E SEU DINHEIRO JA ESTÁ RENDENDO! VOLTE SEMPRE! ");
+                    } else {
+                        System.out.println("NÂO FOI POSSIVEL REALIZAR O DEPOSITO NA CONTA CADASTRADA EM SEU CPF: "
+                                + numeroConta + "VERIFIQUE SE O SEU DOCUMENTO ESTA CORRETO.");
+                    }
                     break;
 
-                case 10:
-                    System.err.println("OPÇÃO INVÁLIDA!");
+                default:
+                    System.out.println();
                     break;
+                // TERMINAR PROGRAMA
+
             }
 
         } while (menu != 9);
