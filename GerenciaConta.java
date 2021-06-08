@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
-public class GerenciaConta {
+import static java.util.Objects.isNull;
+
+public class GerenciaConta extends Conta {
     private ArrayList<Conta> listaDeContas;
 
     public GerenciaConta() {
@@ -46,6 +48,50 @@ public class GerenciaConta {
             }
         }
         return "Não encontrado";
+    }
+
+    public String buscarCpf(String nome) {
+        for (Conta conta : listaDeContas) {
+            if (conta.getCpf().equals(nome)) {
+                return conta.getDados();
+            }
+        }
+        return "Não encontrado";
+    }
+
+    public Conta buscarConta(Integer numeroConta) {
+        for (Conta conta : listaDeContas) {
+            if (conta.getNumero() == numeroConta) {
+                return conta;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String getDados() {
+        return null;
+    }
+
+    public boolean fazerDeposito(Integer numeroConta, Double valores) {
+        Conta contaSelecionada = this.buscarConta(numeroConta);
+
+        if (!isNull(contaSelecionada)) {
+            return contaSelecionada.depositar(valores);
+        }
+
+        return false;
+    }
+
+    public boolean fazerSaque(Integer numeroConta, Double valores) {
+        Conta contaSelecionada = this.buscarConta(numeroConta);
+
+        if (!isNull(contaSelecionada)) {
+            return contaSelecionada.depositar(valores);
+        }
+
+        return false;
+
     }
 
 }

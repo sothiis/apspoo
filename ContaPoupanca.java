@@ -1,7 +1,4 @@
 public class ContaPoupanca extends Conta {
-    // A ​ContaPoupança​realiza saque se houver saldo, mas há uma taxa por operação.
-    // A taxa édefinida para toda a classe e não para cada objeto individualmente
-    // (atributo estático)
 
     private double taxa;
 
@@ -14,13 +11,31 @@ public class ContaPoupanca extends Conta {
         return taxa;
     }
 
-    public double setTaxa() {
-        return taxa;
+    public void setTaxa() {
+        this.taxa = taxa;
     }
 
     @Override
     public String getDados() {
         return "CONTA POUPANÇA  " + "NOME: " + getNome() + " - " + "CPF: " + getCpf() + " NÚMERO DA CONTA: "
                 + getNumero() + " SALDO: " + getSaldo();
+    }
+
+    @Override
+    public boolean sacar(double valores) {
+        if (getSaldo() >= (valores)) {
+            setSaldo(getSaldo() - (valores + this.taxa));
+
+            return true;
+        }
+        return false;
+
+    }
+
+    @Override
+    public boolean depositar(double valores) {
+        setSaldo(getSaldo() + valores);
+
+        return true;
     }
 }

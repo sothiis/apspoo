@@ -12,13 +12,31 @@ public class ContaEspecial extends Conta {
         return limite;
     }
 
-    public double setLimite() {
-        return limite;
+    public void setLimite() {
+        this.limite = limite;
     }
 
     @Override
     public String getDados() {
         return "CONTA ESPECIAL  " + "NOME: " + getNome() + " - " + "CPF: " + getCpf() + " NÚMERO DA CONTA: "
                 + getNumero() + " SALDO: " + getSaldo() + "LIMITE: " + limite;
+    }
+
+    @Override
+    public boolean sacar(double valores) {
+        if (getSaldo() >= (valores + getLimite())) {
+            setSaldo(getSaldo() - valores);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean depositar(double valores) {
+        setSaldo(getSaldo() + valores);
+
+        return true;
     }
 }
