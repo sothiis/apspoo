@@ -95,10 +95,9 @@ public class AppContas {
                     System.out.println(contas.buscarCpf(cpf));
                     break;
                 // BUSCAR POR CPF
-
                 case 8:
                     // FAZER SAQUE
-                    System.out.println("QUAL TIPO DE CONTA DESEJA FAZER O DEPÓSITO?");
+                    System.out.println("QUAL TIPO DE CONTA DESEJA FAZER O SAQUE?");
                     System.out.println("1 - CONTA CORRENTE");
                     // permite fazer saques somente se houver saldo suficiente
                     System.out.println("2 - CONTA ESPECIAL");
@@ -110,16 +109,14 @@ public class AppContas {
 
                 case 9:
                     // FAZER DEPOSITO
-                    System.out.println();
                     break;
 
                 case 10:
                     System.out.println();
                     break;
-                // TERMINAR PROGRAMA
 
                 case 11:
-                    System.err.println("OPÇÃO INVÁLIDA! ");
+                    System.err.println("OPÇÃO INVÁLIDA!");
                     break;
 
             }
