@@ -11,6 +11,10 @@ public abstract class Conta {
   private String cpf;
   private String nome;
 
+  public Conta() {
+
+  }
+
   public Conta(String nome, String cpf, int numero, double saldo) {
     this.nome = nome;
     this.cpf = cpf;
@@ -54,12 +58,10 @@ public abstract class Conta {
     return saldo;
   }
 
-  public double setSaldo() {
+  public double setSaldo(double v) {
     return saldo;
   }
 
   public abstract String getDados();
 
 }
-
-
