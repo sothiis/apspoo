@@ -104,7 +104,7 @@ public class AppContas {
                     valores = sc.nextDouble();
 
                     if (contas.fazerSaque(numeroConta, valores)) {
-                        System.out.println("VOCÊ REALIZOU UM SAQUE DE: " + valores + "COM EXITO!");
+                        System.out.println("VOCÊ REALIZOU UM SAQUE DE: " + valores + " COM EXITO!");
                     } else {
                         System.out.println("SAQUE NÃO PERMITIDO, POR FAVOR, ENTRE EM CONTATO COM SEU BANCO.");
                     }
@@ -112,7 +112,6 @@ public class AppContas {
                     break;
 
                 case 9:
-                    // FAZER DEPOSITO
                     System.out.println("DIGITE O NUMERO DA SUA CONTA: ");
                     numeroConta = sc.nextInt();
 
@@ -131,7 +130,6 @@ public class AppContas {
                 default:
                     System.out.println();
                     break;
-                // TERMINAR PROGRAMA
 
             }
 

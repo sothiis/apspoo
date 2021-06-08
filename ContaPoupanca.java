@@ -1,10 +1,9 @@
 public class ContaPoupanca extends Conta {
 
-    private double taxa;
+    private double taxa = 10;
 
     public ContaPoupanca(String nome, String cpf, int numero, double saldo) {
         super(nome, cpf, numero, saldo);
-        // this.taxa = taxa;
     }
 
     public double getTaxa() {
@@ -25,7 +24,6 @@ public class ContaPoupanca extends Conta {
     public boolean sacar(double valores) {
         if (getSaldo() >= (valores)) {
             setSaldo(getSaldo() - (valores + this.taxa));
-
             return true;
         }
         return false;
